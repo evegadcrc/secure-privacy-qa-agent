@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.backends._legacy:_Backend"
+
+[project]
+name = "secure-privacy-qa-agent"
+version = "1.0.0"
+description = "AI-powered cookie consent compliance QA agent"
+requires-python = ">=3.11"
+dependencies = [
+    "playwright>=1.40.0",
+    "anthropic>=0.40.0",
+    "click>=8.1.0",
+    "rich>=13.0.0",
+    "pydantic>=2.0.0",
+    "python-dotenv>=1.0.0",
+    "openpyxl>=3.1.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+    "pytest-asyncio>=0.23.0",
+]
+
+[project.scripts]
+consent-audit = "src.main:cli"
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
